@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { useSocket } from '../../context/SocketContext';
 import Channel from './Channel';
+import { nanoid } from 'nanoid';
 
 const Channels = () => {
   const { socket, channels } = useSocket();
@@ -25,10 +26,7 @@ const Channels = () => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable
-        droppableId={String(Math.random() * 100)}
-        key={String(Math.random() * 100)}
-      >
+      <Droppable droppableId={nanoid()} key={nanoid()}>
         {(provided) => (
           <div
             className="w-full h-full"

@@ -57,6 +57,11 @@ io.on("connection", (socket) => {
     });
   });
 
+  socket.on("add-channel", (channel) => {
+    channels.push(channel);
+    socket.emit("get-channels", { channels: channels });
+  });
+
   socket.on("disconnect", () => {
     let filtered = onlineUsers.filter(
       (user) => Object.keys(user)[0].toString() != socket.id

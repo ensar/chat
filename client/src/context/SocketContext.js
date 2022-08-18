@@ -52,6 +52,10 @@ export const SocketProvider = ({ children }) => {
         message
       });
     }
+
+    addChannel(channel) {
+      return this.socket.current.emit('add-channel', channel);
+    }
   }
 
   const socket = new Socket(socketRef);

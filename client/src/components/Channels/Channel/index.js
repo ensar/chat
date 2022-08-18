@@ -25,7 +25,7 @@ const Channel = ({ channel, index }) => {
         >
           <img
             src={channel.img}
-            className="bg-cover rounded-[50%] h-full mr-2"
+            className="bg-cover rounded-[50%] h-full mr-2 w-16"
           />
           <span className="text-black group-hover:text-white">
             {channel.name}
